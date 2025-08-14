@@ -8,7 +8,7 @@ interface SidebarHeaderProps {
 
 export const SidebarHeader = ({ isOpen, onToggle }: SidebarHeaderProps) => {
   return (
-    <div className='flex items-center justify-between p-4 border-b bg-gray-50'>
+    <div className='flex items-center justify-between px-4 min-h-[57px] border-b bg-gray-50'>
       {isOpen && <span className='font-semibold text-gray-800'>HakaiAI</span>}
       <button
         onClick={onToggle}
