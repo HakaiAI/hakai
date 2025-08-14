@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router';
 import Sidebar from '@/components/Sidebar/Sidebar';
-import { PanelLeft } from 'lucide-react';
+import { LightbulbIcon, PanelLeft } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const AppLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -21,6 +22,9 @@ const AppLayout = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  // Toggle dark mode
+  const toggleDarkMode = () => {}
+
   return (
     <div className='flex h-screen w-screen'>
       {/* Sidebar */}
@@ -29,14 +33,21 @@ const AppLayout = () => {
       {/* Main content area */}
       <main className='flex-1 flex flex-col relative overflow-x-hidden overflow-y-auto'>
         {/* Header */}
-        <header className='fixed w-full top-0 right-0 left-0 bg-white border-b p-2.5 min-h-[57px] z-20'>
+        <header className={cn('fixed w-full flex items-center top-0 right-0 bg-white border-b p-2.5 min-h-[57px] z-20', isSidebarOpen ? 'lg:w-[calc(100%-268px)]' : 'lg:w-[calc(100%-56px)]')}>
           {/* Mobile sidebar toggle button */}
           <button
             onClick={toggleSidebar}
-            className='p-2 bg-white rounded-lg lg:hidden'
+            className='p-2 bg-white rounded-lg lg:hidden cursor-pointer'
             aria-label='Toggle sidebar'
           >
             <PanelLeft size={20} className='text-gray-600' />
+          </button>
+          <button
+            onClick={toggleDarkMode}
+            className='p-2 bg-white rounded-lg ml-auto cursor-pointer'
+            aria-label='Toggle Dark Mode'
+          >
+            <LightbulbIcon size={20} className='text-gray-600' />
           </button>
         </header>
 

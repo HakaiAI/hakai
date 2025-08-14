@@ -12,7 +12,7 @@ export const SidebarHeader = ({ isOpen, onToggle }: SidebarHeaderProps) => {
       {isOpen && <span className='font-semibold text-gray-800'>HakaiAI</span>}
       <button
         onClick={onToggle}
-        className='rounded-md hover:bg-gray-100 transition-colors px-0 mx-0'
+        className='rounded-md hover:bg-gray-100 transition-colors px-0 mx-0 cursor-pointer'
         aria-label={isOpen ? 'Close sidebar' : 'Open sidebar'}
       >
         {isOpen ? <PanelLeftClose size={20} /> : <PanelLeftOpen size={20} />}
