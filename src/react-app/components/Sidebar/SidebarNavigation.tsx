@@ -13,16 +13,6 @@ export const SidebarNavigation = ({ isOpen }: SidebarNavigationProps) => {
       label: 'New Chat',
       icon: <Plus size={20} />,
     },
-    // {
-    //   id: 'search-chats',
-    //   label: 'Search chats',
-    //   icon: <Search size={20} />,
-    // },
-    // {
-    //   id: 'library',
-    //   label: 'Library',
-    //   icon: <Image size={20} />,
-    // },
   ];
 
   return (

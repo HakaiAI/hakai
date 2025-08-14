@@ -12,7 +12,7 @@ const RecentChats = ({ isOpen }: RecentChatsProps) => {
   return (
     <div className='flex flex-col flex-1 min-h-0'>
       <div className='px-3 py-2 flex-shrink-0'>
-        <h3 className='text-xs font-medium text-gray-500 uppercase tracking-wider'>
+        <h3 className='text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider'>
           Recents
         </h3>
       </div>
@@ -23,7 +23,7 @@ const RecentChats = ({ isOpen }: RecentChatsProps) => {
               key={chat.id}
               to={`/chat/${chat.id}`}
               className={cn(
-                'block w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors',
+                'block w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors',
                 'truncate'
               )}
               title={chat.title}

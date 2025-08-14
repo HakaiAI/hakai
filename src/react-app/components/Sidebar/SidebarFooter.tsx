@@ -44,7 +44,7 @@ export const SidebarFooter = ({ isOpen }: SidebarFooterProps) => {
     className?: string;
   }) => (
     <div
-      className={`size-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-medium text-gray-700 ${className}`}
+      className={`size-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-xs font-medium text-gray-700 dark:text-gray-300 ${className}`}
     >
       {children}
     </div>
@@ -64,7 +64,7 @@ export const SidebarFooter = ({ isOpen }: SidebarFooterProps) => {
     path: string;
   }) => (
     <button
-      className='w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors'
+      className='w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors'
       onClick={() => handleMenuClick(path)}
     >
       <Icon className='h-4 w-4' />
@@ -74,7 +74,7 @@ export const SidebarFooter = ({ isOpen }: SidebarFooterProps) => {
 
   if (!isOpen) {
     return (
-      <div className='p-2 border-t border-gray-200 flex items-center justify-center'>
+      <div className='p-2 border-t border-gray-200 dark:border-gray-700 flex items-center justify-center'>
         <DropdownMenu>
           <button
             className='w-full flex items-center justify-center'
@@ -83,7 +83,7 @@ export const SidebarFooter = ({ isOpen }: SidebarFooterProps) => {
             <Avatar>{userInitials}</Avatar>
           </button>
           {isDropdownOpen && (
-            <div className='absolute left-full bottom-0 ml-2 bg-white border border-gray-200 rounded-lg shadow-lg py-1 w-48 z-50'>
+            <div className='absolute left-full bottom-0 ml-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg py-1 w-48 z-50'>
               <DropdownItem icon={Clock} path='/history'>
                 History
               </DropdownItem>
@@ -96,7 +96,7 @@ export const SidebarFooter = ({ isOpen }: SidebarFooterProps) => {
               <DropdownItem icon={FileText} path='/reports'>
                 Reports
               </DropdownItem>
-              <div className='border-t border-gray-200 my-1'></div>
+              <div className='border-t border-gray-200 dark:border-gray-700 my-1'></div>
               <DropdownItem icon={LogOut} path='/logout'>
                 Logout
               </DropdownItem>
@@ -108,21 +108,21 @@ export const SidebarFooter = ({ isOpen }: SidebarFooterProps) => {
   }
 
   return (
-    <div className='p-3 border-t border-gray-200'>
+    <div className='p-3 border-t border-gray-200 dark:border-gray-700'>
       <DropdownMenu>
         <button
-          className='w-full flex items-center gap-3 hover:bg-gray-50 rounded-lg p-2 transition-colors'
+          className='w-full flex items-center gap-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-2 transition-colors'
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         >
           <Avatar>{userInitials}</Avatar>
           <div className='flex-1 text-left'>
-            <p className='text-sm font-medium text-gray-900'>{userName}</p>
-            <p className='text-xs text-gray-500'>{subscriptionPlan}</p>
+            <p className='text-sm font-medium text-gray-900 dark:text-gray-100'>{userName}</p>
+            <p className='text-xs text-gray-500 dark:text-gray-400'>{subscriptionPlan}</p>
           </div>
-          <ChevronUp className='h-4 w-4 text-gray-400' />
+          <ChevronUp className='h-4 w-4 text-gray-400 dark:text-gray-500' />
         </button>
         {isDropdownOpen && (
-          <div className='absolute bottom-full left-3 right-3 mb-2 bg-white border border-gray-200 rounded-lg shadow-lg py-1 z-50'>
+          <div className='absolute bottom-full left-3 right-3 mb-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg py-1 z-50'>
             <DropdownItem icon={Clock} path='/history'>
               History
             </DropdownItem>
@@ -135,7 +135,7 @@ export const SidebarFooter = ({ isOpen }: SidebarFooterProps) => {
             <DropdownItem icon={FileText} path='/reports'>
               Reports
             </DropdownItem>
-            <div className='border-t border-gray-200 my-1'></div>
+            <div className='border-t border-gray-200 dark:border-gray-700 my-1'></div>
             <DropdownItem icon={LogOut} path='/logout'>
               Logout
             </DropdownItem>

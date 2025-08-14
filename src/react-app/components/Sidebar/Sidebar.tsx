@@ -10,45 +10,45 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
-  return (
-    <>
-      {/* Mobile overlay */}
-      <div
-        className={cn(
-          'fixed inset-0 bg-black/50 z-40 lg:hidden transition-opacity duration-300 ease-in-out',
-          {
-            'opacity-100': isOpen,
-            'opacity-0 pointer-events-none': !isOpen,
-          }
-        )}
-        onClick={onToggle}
-      />
+return (
+  <>
+    {/* Mobile overlay */}
+    <div
+      className={cn(
+        'fixed inset-0 bg-black/50 z-40 lg:hidden transition-opacity duration-300 ease-in-out',
+        {
+          'opacity-100': isOpen,
+          'opacity-0 pointer-events-none': !isOpen,
+        }
+      )}
+      onClick={onToggle}
+    />
 
-      {/* Sidebar */}
-      <aside
-        className={cn(
-          'fixed top-0 left-0 h-full bg-white border-r border-gray-200 z-50 transition-transform duration-300 ease-in-out',
-          'lg:relative lg:z-30 lg:transition-all lg:duration-300',
-          {
-            'translate-x-0': isOpen,
-            '-translate-x-full lg:translate-x-0': !isOpen,
-          }
-        )}
-        style={{
-          width: isOpen ? '268px' : '56px',
-        }}
-      >
-        <div className='flex flex-col h-full w-full'>
-          <SidebarHeader isOpen={isOpen} onToggle={onToggle} />
-          <SidebarNavigation isOpen={isOpen} />
-          <RecentChats isOpen={isOpen} />
-          <div className='mt-auto'>
-            <SidebarFooter isOpen={isOpen} />
-          </div>
+    {/* Sidebar */}
+    <aside
+      className={cn(
+        'fixed top-0 left-0 h-full bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 z-50 transition-transform duration-300 ease-in-out',
+        'lg:relative lg:z-30 lg:transition-all lg:duration-300',
+        {
+          'translate-x-0': isOpen,
+          '-translate-x-full lg:translate-x-0': !isOpen,
+        }
+      )}
+      style={{
+        width: isOpen ? '268px' : '56px',
+      }}
+    >
+      <div className='flex flex-col h-full w-full'>
+        <SidebarHeader isOpen={isOpen} onToggle={onToggle} />
+        <SidebarNavigation isOpen={isOpen} />
+        <RecentChats isOpen={isOpen} />
+        <div className='mt-auto'>
+          <SidebarFooter isOpen={isOpen} />
         </div>
-      </aside>
-    </>
-  );
+      </div>
+    </aside>
+  </>
+);
 };
 
 export default Sidebar;

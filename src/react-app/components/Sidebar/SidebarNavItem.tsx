@@ -21,9 +21,10 @@ export const SidebarNavItem = ({
       variant={variant}
       className={cn(
         'w-full justify-start text-left',
-        'hover:bg-gray-100 hover:text-gray-900',
+        'hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100',
         'transition-colors duration-200',
-        !isOpen && 'justify-center px-2'
+        !isOpen && 'justify-center px-2',
+        'text-gray-700 dark:text-gray-300'
       )}
       onClick={onClick}
     >
