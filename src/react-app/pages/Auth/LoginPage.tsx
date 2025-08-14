@@ -54,9 +54,9 @@ const LoginPage: React.FC = () => {
         <div className="mt-6 flex flex-col gap-4">
           <AuthSeparator />
           
-          <GoogleSignInButton 
-            onClick={handleGoogleLogin} 
-            isLoading={loading} 
+          <GoogleSignInButton
+            onClick={handleGoogleLogin}
+            loading={loading}
           />
         </div>
       </CardContent>
