@@ -1,6 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router';
 import { Search, Plus, MessageCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChatHistoryItem, fetchChatHistory } from '@/data/mockChatHistory';
 import HistoryPageSkeleton from '@/components/HistoryPageSkeleton';
 import SearchSpinner from '@/components/SearchSpinner';
@@ -86,59 +89,62 @@ const HistoryPage = () => {
   }
 
   return (
-    <div className='min-h-screen bg-gray-50 p-6'>
-      <div className='max-w-4xl mx-auto'>
+    <div className="min-h-screen bg-background p-6">
+      <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className='flex justify-between items-center mb-6'>
-          <h1 className='text-2xl font-semibold text-gray-800'>
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-2xl font-semibold text-foreground">
             Your chat history
           </h1>
-          <Link
-            to='/chat/new'
-            className='inline-flex items-center px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors'
-          >
-            <Plus className='w-4 h-4 mr-2' />
-            New chat
-          </Link>
+          <Button asChild>
+            <Link to="/chat/new">
+              <Plus className="w-4 h-4 mr-2" />
+              New chat
+            </Link>
+          </Button>
         </div>
 
         {/* Search */}
-        <div className='relative mb-6'>
-          <Search className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5' />
-          <input
-            type='text'
-            placeholder='Search your chats...'
+        <div className="relative mb-6">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
+          <Input
+            type="text"
+            placeholder="Search your chats..."
             value={searchQuery}
-            onChange={e => handleSearch(e.target.value)}
-            className='w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+            onChange={(e) => handleSearch(e.target.value)}
+            className="pl-10"
           />
           <SearchSpinner isVisible={isSearching} />
         </div>
 
         {/* Stats */}
-        <p className='text-sm text-gray-600 mb-6'>
+        <p className="text-sm text-muted-foreground mb-6">
           You have {total} previous chats.
         </p>
 
         {/* Chat List */}
-        <div className='space-y-3'>
+        <div className="space-y-3">
           {chatHistory.map(chat => (
             <Link
               key={chat.id}
               to={`/chat/${chat.id}`}
-              className='block p-4 bg-white rounded-lg border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all'
+              className="block"
             >
-              <div className='flex items-start justify-between'>
-                <div className='flex-1'>
-                  <h3 className='font-medium text-gray-900 mb-1'>
-                    {chat.title}
-                  </h3>
-                  <p className='text-sm text-gray-500'>
-                    Last message {formatTimeAgo(chat.timestamp)}
-                  </p>
-                </div>
-                <MessageCircle className='w-5 h-5 text-gray-400 mt-1' />
-              </div>
+              <Card className="hover:shadow-md transition-shadow cursor-pointer">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <CardTitle className="text-base font-medium mb-1">
+                        {chat.title}
+                      </CardTitle>
+                      <p className="text-sm text-muted-foreground">
+                        Last message {formatTimeAgo(chat.timestamp)}
+                      </p>
+                    </div>
+                    <MessageCircle className="w-5 h-5 text-muted-foreground mt-1" />
+                  </div>
+                </CardHeader>
+              </Card>
             </Link>
           ))}
         </div>
@@ -154,12 +160,12 @@ const HistoryPage = () => {
 
         {/* No results */}
         {searchQuery && chatHistory.length === 0 && !isSearching && (
-          <div className='text-center py-12'>
-            <MessageCircle className='w-12 h-12 text-gray-300 mx-auto mb-4' />
-            <h3 className='text-lg font-medium text-gray-900 mb-2'>
+          <div className="text-center py-12">
+            <MessageCircle className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-foreground mb-2">
               No chats found
             </h3>
-            <p className='text-gray-500'>Try adjusting your search terms</p>
+            <p className="text-muted-foreground">Try adjusting your search terms</p>
           </div>
         )}
       </div>

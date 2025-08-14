@@ -11,7 +11,7 @@ export const AppHeader = ({ isSidebarOpen, onToggleSidebar }: AppHeaderProps) =>
   return (
     <header
       className={cn(
-        'fixed w-full flex items-center top-0 right-0 bg-white dark:bg-gray-900 border-b dark:border-gray-800 p-2.5 min-h-[57px] z-20',
+        'fixed w-full flex items-center top-0 right-0 bg-sidebar text-sidebar-foreground border-b border-sidebar-border p-2.5 min-h-[57px] z-20',
         isSidebarOpen ? 'lg:w-[calc(100%-268px)]' : 'lg:w-[calc(100%-56px)]'
       )}
     >

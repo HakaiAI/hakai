@@ -8,11 +8,11 @@ interface SidebarHeaderProps {
 
 export const SidebarHeader = ({ isOpen, onToggle }: SidebarHeaderProps) => {
   return (
-    <div className='flex items-center justify-between px-4 min-h-[57px] border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700'>
-      {isOpen && <span className='font-semibold text-gray-800 dark:text-gray-100'>HakaiAI</span>}
+    <div className='flex items-center justify-between px-4 min-h-[57px] border-b border-sidebar-border bg-sidebar text-sidebar-foreground'>
+      {isOpen && <span className='font-semibold'>HakaiAI</span>}
       <button
         onClick={onToggle}
-        className='rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors px-0 mx-0 cursor-pointer text-gray-600 dark:text-gray-400'
+        className='rounded-md hover:bg-sidebar-accent transition-colors px-0 mx-0 cursor-pointer text-sidebar-foreground/70 hover:text-sidebar-foreground'
         aria-label={isOpen ? 'Close sidebar' : 'Open sidebar'}
       >
         {isOpen ? <PanelLeftClose size={20} /> : <PanelLeftOpen size={20} />}

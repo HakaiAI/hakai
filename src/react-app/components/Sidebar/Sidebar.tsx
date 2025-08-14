@@ -27,7 +27,7 @@ return (
     {/* Sidebar */}
     <aside
       className={cn(
-        'fixed top-0 left-0 h-full bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 z-50 transition-transform duration-300 ease-in-out',
+        'fixed top-0 left-0 h-full bg-sidebar text-sidebar-foreground border-r border-sidebar-border z-50 transition-transform duration-300 ease-in-out',
         'lg:relative lg:z-30 lg:transition-all lg:duration-300',
         {
           'translate-x-0': isOpen,

@@ -18,7 +18,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className='p-8 w-full h-full flex items-center justify-center'>
+    <div className='p-8 w-full h-full flex items-center justify-center bg-sidebar text-sidebar-foreground'>
       <div className='flex justify-center flex-col max-w-2xl w-full'>
         <HeroSection
           title='Welcome to HakaiAI'

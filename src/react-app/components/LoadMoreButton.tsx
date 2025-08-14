@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '@/components/ui/button';
 
 interface LoadMoreButtonProps {
   onLoadMore: () => void;
@@ -13,20 +14,21 @@ const LoadMoreButton: React.FC<LoadMoreButtonProps> = ({
 }) => {
   return (
     <div className='mt-8 text-center'>
-      <button
+      <Button
         onClick={onLoadMore}
         disabled={disabled || isLoading}
-        className='inline-flex items-center px-6 py-3 bg-white border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors'
+        variant='outline'
+        size='lg'
       >
         {isLoading ? (
           <>
-            <div className='animate-spin w-4 h-4 border-2 border-gray-300 border-t-gray-700 rounded-full mr-2'></div>
+            <div className='animate-spin w-4 h-4 border-2 border-current border-t-transparent rounded-full mr-2'></div>
             Loading...
           </>
         ) : (
           'Load more'
         )}
-      </button>
+      </Button>
     </div>
   );
 };
