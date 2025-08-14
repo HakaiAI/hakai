@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ChatPrompt from '@/components/ChatPrompt/ChatPrompt';
 import ChatConversation from '@/components/ChatConversation/ChatConversation';
+import { cn } from '@/lib/utils';
 
 interface Message {
   id: string;
@@ -64,6 +65,8 @@ const ChatPage = () => {
   const [message, setMessage] = useState('');
   const { messages, sendMessage } = useChat();
 
+  const isSidebarOpen = true;
+
   const handleSubmit = (event?: React.FormEvent) => {
     event?.preventDefault();
     if (message.trim()) {
@@ -81,8 +84,13 @@ const ChatPage = () => {
       <div className='mx-auto px-4 pt-4 lg:px-0 lg:w-3xl pb-44'>
         <ChatConversation messages={messages} className='h-full' />
       </div>
-      <div className='absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full px-4'>
-        <div className='mx-auto px-4 lg:px-0 lg:w-3xl'>
+      <div
+        className={cn(
+          'fixed w-full flex items-center bottom-4 right-0 z-20',
+          isSidebarOpen ? 'lg:w-[calc(100%-268px)]' : 'lg:w-[calc(100%-56px)]'
+        )}
+      >
+        <div className='mx-auto px-4 w-full lg:px-0 lg:w-3xl'>
           <ChatPrompt
             value={message}
             onChange={setMessage}
