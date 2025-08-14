@@ -13,17 +13,17 @@ const BillingHeader: React.FC<BillingHeaderProps> = ({
   return (
     <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-4'>
       <div>
-        <h1 className='text-3xl font-bold text-gray-900'>
-          Billing &amp; Subscription
+        <h1 className='text-3xl font-bold text-foreground'>
+          Billing & Subscription
         </h1>
-        <p className='text-gray-600 mt-2'>
+        <p className='text-muted-foreground mt-2'>
           Keep track of your subscription details, update your billing
           information, and control your account's payment
         </p>
       </div>
 
       {/* Period Toggle */}
-      <div className='flex rounded-lg border border-gray-200 bg-white p-1'>
+      <div className='flex rounded-lg border border-border bg-background p-1'>
         <Button
           variant={billingPeriod === 'monthly' ? 'default' : 'ghost'}
           size='sm'

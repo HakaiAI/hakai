@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Plus, CreditCard } from 'lucide-react';
 import PaymentMethodCard, { PaymentMethod } from './PaymentMethodCard';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface PaymentMethodsSectionProps {
   paymentMethods: PaymentMethod[];
@@ -17,12 +18,12 @@ const PaymentMethodsSection: React.FC<PaymentMethodsSectionProps> = ({
   onRemovePayment,
 }) => {
   return (
-    <div className='bg-white rounded-lg border'>
-      <div className='p-6 border-b'>
+    <Card>
+      <CardHeader>
         <div className='flex items-center justify-between'>
           <div>
-            <h2 className='text-xl font-semibold'>Payment Methods</h2>
-            <p className='text-gray-600 text-sm mt-1'>
+            <CardTitle>Payment Methods</CardTitle>
+            <p className='text-sm text-muted-foreground mt-1'>
               Manage your payment methods and set your default payment option
             </p>
           </div>
@@ -31,13 +32,13 @@ const PaymentMethodsSection: React.FC<PaymentMethodsSectionProps> = ({
             Add Payment Method
           </Button>
         </div>
-      </div>
+      </CardHeader>
 
-      <div className='p-6'>
+      <CardContent>
         {paymentMethods.length === 0 ? (
           <div className='text-center py-8'>
-            <CreditCard className='w-12 h-12 text-gray-400 mx-auto mb-4' />
-            <p className='text-gray-600 mb-4'>No payment methods added yet</p>
+            <CreditCard className='w-12 h-12 text-muted-foreground mx-auto mb-4' />
+            <p className='text-muted-foreground mb-4'>No payment methods added yet</p>
             <Button onClick={onAddPayment} variant='outline'>
               Add Your First Payment Method
             </Button>
@@ -54,8 +55,8 @@ const PaymentMethodsSection: React.FC<PaymentMethodsSectionProps> = ({
             ))}
           </div>
         )}
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 };
 

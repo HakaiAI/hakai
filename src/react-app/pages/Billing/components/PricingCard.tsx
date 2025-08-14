@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
+import { Check } from 'lucide-react';
 
 interface PricingCardProps {
   badge: string;
@@ -38,7 +39,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
   <Card
     className={cn(
       'relative flex-1 min-w-[300px]',
-      isHighlighted && 'bg-slate-900 text-white border-slate-700'
+      isHighlighted && 'border-primary shadow-lg shadow-primary/20'
     )}
   >
     <CardHeader>
@@ -58,7 +59,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
           <CardTitle className='text-xl'>{title}</CardTitle>
         </div>
       </div>
-      <div className='text-3xl font-bold'>{price}</div>
+      <div className='text-3xl font-bold text-foreground'>{price}</div>
     </CardHeader>
     <CardContent className='flex-1'>
       <ul className='space-y-3'>
@@ -68,13 +69,13 @@ const PricingCard: React.FC<PricingCardProps> = ({
               className={cn(
                 'w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold mt-0.5',
                 isHighlighted
-                  ? 'bg-green-500 text-white'
-                  : 'bg-green-100 text-green-600'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400'
               )}
             >
-              ✓
+              <Check className="w-3 h-3" />
             </div>
-            <span className='text-sm'>{feature}</span>
+            <span className='text-sm text-muted-foreground'>{feature}</span>
           </li>
         ))}
       </ul>

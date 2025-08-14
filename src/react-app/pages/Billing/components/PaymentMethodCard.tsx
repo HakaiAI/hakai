@@ -63,7 +63,7 @@ const PaymentMethodCard: React.FC<PaymentMethodCardProps> = ({
           <div className='text-2xl'>{getCardIcon(method.type)}</div>
           <div>
             <div className='flex items-center gap-2'>
-              <span className='font-medium'>
+              <span className='font-medium text-foreground'>
                 {getCardTypeDisplay(method.type)}
               </span>
               {method.isDefault && (
@@ -72,17 +72,17 @@ const PaymentMethodCard: React.FC<PaymentMethodCardProps> = ({
                 </Badge>
               )}
             </div>
-            <div className='text-sm text-gray-600'>
+            <div className='text-sm text-muted-foreground'>
               {method.type === 'paypal'
                 ? method.email
                 : `•••• •••• •••• ${method.last4}`}
             </div>
             {method.type !== 'paypal' && (
-              <div className='text-xs text-gray-500'>
+              <div className='text-xs text-muted-foreground/70'>
                 Expires {method.expiryMonth}/{method.expiryYear}
               </div>
             )}
-            <div className='text-xs text-gray-500 mt-1'>
+            <div className='text-xs text-muted-foreground/70 mt-1'>
               {method.holderName}
             </div>
           </div>
@@ -103,7 +103,7 @@ const PaymentMethodCard: React.FC<PaymentMethodCardProps> = ({
             variant='ghost'
             size='sm'
             onClick={() => onRemove(method.id)}
-            className='text-red-600 hover:text-red-700 hover:bg-red-50 p-2'
+            className='text-destructive hover:text-destructive/80 hover:bg-destructive/10 p-2'
           >
             <Trash2 className='w-4 h-4' />
           </Button>
